@@ -1,0 +1,34 @@
+{
+  "extends": "next/core-web-vitals",
+  "plugins": ["import", "unused-imports"],
+  "rules": {
+    "import/order": [
+      "warn",
+      {
+        "groups": ["builtin", "external", "internal", ["sibling", "parent"]],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@/**",
+            "group": "internal",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin", "internal"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "no-multiple-empty-lines": "warn",
+    "no-unused-vars": "warn",
+    "import/no-unresolved": "off",
+    "unused-imports/no-unused-imports": "warn"
+  }
+}
